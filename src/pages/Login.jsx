@@ -25,7 +25,7 @@ const Login = () => {
     e.preventDefault()
     setLoading(true)
     try{
-      const { data } = await axios.post("http://localhost:3001/api/users/login", {email, password});
+      const { data } = await axios.post("https://agoralink.onrender.com/api/users/login", {email, password});
 
       // Save user to local storage
       localStorage.setItem('userInfo', JSON.stringify(data.user))

@@ -49,7 +49,7 @@ const Sidebar = ({ setSelectedGroup }) => {
     try {
       const userInfo = JSON.parse(localStorage.getItem("userInfo" || "{}"));
       const token = userInfo.token;
-      const { data } = await axios.get("http://localhost:3001/api/groups", {
+      const { data } = await axios.get("https://agoralink.onrender.com/api/groups", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -74,7 +74,7 @@ const Sidebar = ({ setSelectedGroup }) => {
     try{
       const userInfo = JSON.parse(localStorage.getItem("userInfo" || "{}"));
       const token = userInfo.token;
-      await axios.post("http://localhost:3001/api/groups",{
+      await axios.post("https://agoralink.onrender.com/api/groups",{
         name: newGroupName,
         description: newGroupDescription
       }, {
@@ -108,13 +108,13 @@ const Sidebar = ({ setSelectedGroup }) => {
     try{
       const userInfo = JSON.parse(localStorage.getItem("userInfo" || "{}"));
       const token = userInfo.token;
-      await axios.post(`http://localhost:3001/api/groups/${groupId}/join`,{},{
+      await axios.post(`https://agoralink.onrender.com/api/groups/${groupId}/join`,{},{
         headers: {
           Authorization: `Bearer ${token}`
         }
       })
       await fetchGroups(); // wait for groups to update
-        const updatedGroups = await axios.get("http://localhost:3001/api/groups", {
+        const updatedGroups = await axios.get("https://agoralink.onrender.com/api/groups", {
           headers: { Authorization: `Bearer ${token}` }
         });
       const joinedGroup = updatedGroups.data.find((g) => g._id === groupId);
@@ -141,7 +141,7 @@ const Sidebar = ({ setSelectedGroup }) => {
     try{
       const userInfo = JSON.parse(localStorage.getItem("userInfo" || "{}"));
       const token = userInfo.token;
-      await axios.post(`http://localhost:3001/api/groups/${groupId}/leave`,{},{
+      await axios.post(`https://agoralink.onrender.com/api/groups/${groupId}/leave`,{},{
         headers: {
           Authorization: `Bearer ${token}`
         }

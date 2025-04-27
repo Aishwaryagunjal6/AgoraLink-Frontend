@@ -25,7 +25,7 @@ const Register = () => {
     e.preventDefault()
     setLoading(true)
     try{
-      const { data } = await axios.post("http://localhost:3001/api/users/register", {username , email, password});
+      const { data } = await axios.post("https://agoralink.onrender.com/api/users/register", {username , email, password});
 
       navigate("/Login")
 

@@ -3,7 +3,7 @@ import Sidebar from "../components/Sidebar";
 import ChatArea from "../components/ChatArea";
 import io from "socket.io-client"
 import { useEffect, useState } from "react";
-const ENDPOINT  = "http://localhost:3001"
+const ENDPOINT  = "https://agoralink.onrender.com"
 
 const Chat = () => {
   const [selectedGroup, setSelectedGroup] = useState(null)
@@ -28,7 +28,7 @@ const Chat = () => {
         <Sidebar  setSelectedGroup={setSelectedGroup}/>
       </Box>
       <Box flex="1">
-        <ChatArea />
+        {socket && <ChatArea selectedGroup={selectedGroup} socket={socket}/>}
       </Box>
     </Flex>
   );
